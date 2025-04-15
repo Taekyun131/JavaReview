@@ -1,5 +1,7 @@
 package _17_MiniProject_DAO;
 
-public class StaffDAO {
-
+public class StaffDAO extends RestaurantDAO{
+	private StaffDAO() {
+		super.init();
+	}
 }

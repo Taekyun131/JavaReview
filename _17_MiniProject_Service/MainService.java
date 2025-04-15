@@ -28,6 +28,7 @@ public class MainService {
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
+				in.nextLine();
 				continue;
 			}
 			

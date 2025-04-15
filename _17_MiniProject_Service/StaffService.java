@@ -19,6 +19,7 @@ public class StaffService {
 			System.out.println("7. 뒤로가기");
 			try {
 				int selNum=in.nextInt();
+				in.nextLine();
 				if(selNum==1) {
 					staffLogin();
 				}else if(selNum==2) {
