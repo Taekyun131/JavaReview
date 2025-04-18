@@ -51,7 +51,38 @@ public class GuestDAO extends RestaurantDAO {
 		}
 		return gdao;
 	}
-
+	
+	// 고객 정보 수정
+	public void updateGuest(GuestDTO modGuest) {
+		if(conn()) {
+			try {
+				String sql="update guest set guestpassword=?, guestname=?, guestphonenum=?, guestregnum=? where guestid=?";
+				PreparedStatement psmt=conn.prepareStatement(sql);
+				psmt.setString(1, modGuest.getGuestPassword());
+				psmt.setString(2, modGuest.getGuestName());
+				psmt.setString(3, modGuest.getGuestPhoneNum());
+				psmt.setString(4, modGuest.getGuestRegNum());
+				psmt.setString(5, modGuest.getGuestId());
+				int ResultInt=psmt.executeUpdate();
+				if(ResultInt>0) {
+					conn.commit();
+					System.out.println("회원 정보가 수정되었습니다");
+				}else {
+					conn.rollback();
+					System.out.println("회원 정보 수정 실패");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
 	// 아이디 조회
 	public GuestDTO findGuest(String guestId) {
 		GuestDTO gdto=new GuestDTO();

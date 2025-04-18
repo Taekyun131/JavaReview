@@ -2,7 +2,8 @@ package _17_MiniProject_DTO;
 
 public class StaffDTO {
 	private String staffName=null;
-	private String staffNum=null;
+	private String staffIdNum=null;
+	private String staffPassword=null;
 	private String staffRank=null;
 	private String staffPhoneNum=null;
 	private String staffRegNum=null;
@@ -14,11 +15,11 @@ public class StaffDTO {
 	public void setStaffName(String staffName) {
 		this.staffName = staffName;
 	}
-	public String getStaffNum() {
-		return staffNum;
+	public String getStaffIdNum() {
+		return staffIdNum;
 	}
-	public void setStaffNum(String staffNum) {
-		this.staffNum = staffNum;
+	public void setStaffIdNum(String staffNum) {
+		this.staffIdNum = staffNum;
 	}
 	public String getStaffRank() {
 		return staffRank;
@@ -32,11 +33,23 @@ public class StaffDTO {
 	public void setStaffPhoneNum(String staffPhoneNum) {
 		this.staffPhoneNum = staffPhoneNum;
 	}
+	public void setStaffPhoneNum(String staffPhoneNum1, String staffPhoneNum2) {
+		this.staffPhoneNum="010-"+staffPhoneNum1+"-"+staffPhoneNum2;
+	}
 	public String getStaffRegNum() {
 		return staffRegNum;
 	}
 	public void setStaffRegNum(String staffRegNum) {
 		this.staffRegNum = staffRegNum;
+	}
+	public void setStaffRegNum(String staffRegNum1, String staffRegNum2) {
+		this.staffRegNum=staffRegNum1+staffRegNum2;
+	}
+	public String getStaffPassword() {
+		return staffPassword;
+	}
+	public void setStaffPassword(String staffPassword) {
+		this.staffPassword = staffPassword;
 	}
 	
 	

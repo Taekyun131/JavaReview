@@ -100,6 +100,34 @@ public class GuestService {
 		}
 	}
 	private void guestModInfo() {
+		if(loginGuest!=null) {
+			System.out.println("회원 정보");
+			System.out.println("아이디: "+loginGuest.getGuestId());
+			System.out.println("비밀번호: "+loginGuest.getGuestPassword());
+			System.out.println("이름: "+loginGuest.getGuestName());
+			System.out.println("전화번호: "+loginGuest.getGuestPhoneNum());
+			System.out.println("주민등록번호: "+loginGuest.getGuestRegNum());
+			System.out.println("===회원 정보 수정===");
+			System.out.println("비밀번호를 입력하세요(최대20자)");
+			String guesModPassword=in.nextLine();
+			System.out.println("사용자의 이름을 입력하세요");
+			String guestModName=in.nextLine();
+			System.out.println("주민등록번호 앞 6자리를 입력하세요");
+			String guestModRegNum1=in.nextLine();
+			System.out.println("주민등록번호 뒤 첫 1자리를 입력하세요");
+			String guestModRegNum2=in.nextLine();
+			System.out.println("휴대폰 번호 010 이후 4자리를 입력하세요");
+			String guestModPhoneNum1=in.nextLine();
+			System.out.println("휴대폰 번호 뒤 4자리를 입력하세요");
+			String guestModPhoneNum2=in.nextLine();
+			loginGuest.setGuestPassword(guesModPassword);
+			loginGuest.setGuestName(guestModName);
+			loginGuest.setGuestPhoneNum("010", guestModPhoneNum1, guestModPhoneNum2);
+			loginGuest.setGuestRegNum(guestModRegNum1, guestModRegNum2);
+			gdao.updateGuest(loginGuest);
+		}else {
+			System.out.println("로그인이 필요한 메뉴입니다");
+		}
 		
 	}private void guestAddReview() {
 		
